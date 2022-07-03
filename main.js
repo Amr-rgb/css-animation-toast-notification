@@ -1,19 +1,23 @@
 const toast = document.getElementById("toastWrapper");
 const firstText = document.getElementById("firstText");
 const lastText = document.getElementById("lastText");
+const icon = document.getElementById("icon");
 const btn = document.getElementById("btn");
 const closeBtn = document.getElementById("closeBtn");
 
 const func = (status) => {
   if (!toast.classList.contains("active")) {
     toast.classList.remove("fail", "success");
+    icon.classList.remove("fa-check", "fa-close");
 
     if (status === "success") {
       firstText.innerText = "Success";
       lastText.innerText = "Your changes has been saved";
+      icon.classList.add("fa-check");
     } else {
       firstText.innerText = "Fail";
       lastText.innerText = "Your changes has not been saved";
+      icon.classList.add("fa-close");
     }
 
     toast.classList.add(status);
